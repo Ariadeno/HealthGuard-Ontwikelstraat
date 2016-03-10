@@ -8,7 +8,7 @@ public enum Cell {
     private Cell(final String initialSymbol) {
         this.symbol = initialSymbol;
     }
-    //NU MOET DIE WERKEN 2 DIT MAG ALLEEN IN DEV1 EN MASTER
+    //DEV1 + MASTER. Nu voor de echt!
     @Override
     public String toString() {
         return symbol;
