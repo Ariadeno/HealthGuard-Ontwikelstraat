@@ -8,9 +8,7 @@ public enum Cell {
     private Cell(final String initialSymbol) {
         this.symbol = initialSymbol;
     }
-    //Test voor opdracht 2
-    //Test merge to dev1 and dev2
-    //Test Desktop
+    //Test Desktop2
     @Override
     public String toString() {
         return symbol;
