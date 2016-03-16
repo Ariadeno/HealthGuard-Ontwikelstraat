@@ -10,6 +10,7 @@ public enum Cell {
     }
     //Test voor opdracht 2
     //Test merge to dev1 and dev2
+    //Test Desktop
     @Override
     public String toString() {
         return symbol;
