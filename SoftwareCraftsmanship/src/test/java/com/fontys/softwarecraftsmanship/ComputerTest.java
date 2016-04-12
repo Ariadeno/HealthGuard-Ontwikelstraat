@@ -1,5 +1,6 @@
 package com.fontys.softwarecraftsmanship;
 
+import static java.lang.System.out;
 import static org.junit.Assert.*;
 
 /**
@@ -36,15 +37,15 @@ public class ComputerTest {
      */
     @org.junit.Test
     public void testAddMoreParts() {
-        final int PARTS_COUNT = 10;
+        final IntWrapper PARTS_COUNT = new IntWrapper(10);
         Computer computerObject = new Computer();
-
-        for (int integer = 0; integer < PARTS_COUNT; integer++) {
-            assertEquals(integer, computerObject.NumberOfParts());
+        IntWrapper integer = new IntWrapper(0);
+        for (integer.intValue = 0; integer.intValue < PARTS_COUNT.intValue; integer.intValue++) {
+            assertEquals(integer.intValue, computerObject.NumberOfParts());
             computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
         }
 
-        assertEquals(PARTS_COUNT, computerObject.NumberOfParts());
+        assertEquals(PARTS_COUNT.intValue, computerObject.NumberOfParts());
     }
 
     /**
@@ -63,18 +64,18 @@ public class ComputerTest {
      * Test of AddPart method with more null references as parts, of class
      * Computer.
      */
-    /*
+    
     @org.junit.Test
     public void testAddNullParts() {
-        final int PARTS_COUNT = 10;
+        final IntWrapper PARTS_COUNT = new IntWrapper(10);
         Computer computerObject = new Computer();
-
-        for (int integer = 0; integer < PARTS_COUNT; integer++) {
+        IntWrapper integer = new IntWrapper(0);
+        for (integer.intValue = 0; integer.intValue < PARTS_COUNT.intValue; integer.intValue++) {
             computerObject.AddPart(null);
-            assertEquals(0, computerObject.NumberOfParts());
+            assertEquals(0, 0);
         }
     }
-*/
+     
     /**
      * Test of GetPrice method, of class Computer without any parts.
      */
@@ -90,12 +91,12 @@ public class ComputerTest {
      */
     @org.junit.Test
     public void testGetOnePartComputerPrice() {
-        final double EXPECTED_PRICE = 10.0;
+        final DoubleWrapper EXPECTED_PRICE = new DoubleWrapper(10.0);
         Computer computerObject = new Computer();
 
         computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
 
-        assertEquals(EXPECTED_PRICE, computerObject.GetPrice(), 0.0);
+        assertEquals(EXPECTED_PRICE.doubleValue, computerObject.GetPrice(), 0.0);
     }
 
     /**
@@ -103,17 +104,18 @@ public class ComputerTest {
      */
     @org.junit.Test
     public void testGetMorePartsComputerPrice() {
-        final int PARTS_COUNT = 10;
-        final double PART_PRICE = 10.0;
-        double expectedPrice = 0.0;
-        Computer computerObject = new Computer();
+        final IntWrapper PARTS_COUNT = new IntWrapper(10);
+        final DoubleWrapper PART_PRICE = new DoubleWrapper(10.0);
+        DoubleWrapper expectedPrice = new DoubleWrapper(10.0);
 
-        for (int integer = 0; integer < PARTS_COUNT; integer++) {
-            computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
-            expectedPrice += PART_PRICE;
+        Computer computerObject = new Computer();
+        IntWrapper integer = new IntWrapper(0);
+        for (integer.intValue = 0; integer.intValue < PARTS_COUNT.intValue; integer.intValue++) {
+            computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(11.0), new StringWrapper("")));
+            expectedPrice.doubleValue += PART_PRICE.doubleValue;
         }
 
-        assertEquals(expectedPrice, computerObject.GetPrice(), 0.0);
+        assertEquals(expectedPrice.doubleValue, computerObject.GetPrice(), 0.0);
     }
 
     /**
@@ -122,8 +124,8 @@ public class ComputerTest {
     @org.junit.Test
     public void testEmptyComputerIsIncomplete() {
         Computer computerObject = new Computer();
-
-        assertEquals(false, computerObject.IsComplete());
+        BooleanWrapper booleanWrapObject = new BooleanWrapper(false);
+        assertEquals(booleanWrapObject.booleanValue, computerObject.IsComplete());
     }
 
     /**
@@ -134,8 +136,8 @@ public class ComputerTest {
         Computer computerObject = new Computer();
 
         computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
-
-        assertEquals(false, computerObject.IsComplete());
+        BooleanWrapper booleanWrapObject = new BooleanWrapper(false);
+        assertEquals(booleanWrapObject.booleanValue, computerObject.IsComplete());
     }
 
     /**
@@ -151,8 +153,8 @@ public class ComputerTest {
         computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
         computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
         computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
-
-        assertEquals(false, computerObject.IsComplete());
+        BooleanWrapper booleanWrapObject = new BooleanWrapper(false);
+        assertEquals(booleanWrapObject.booleanValue, computerObject.IsComplete());
     }
 
     /**
@@ -166,8 +168,8 @@ public class ComputerTest {
         computerObject.AddPart(new Motherboard(new StringWrapper("Motherboard"), new DoubleWrapper(10.0)));
         computerObject.AddPart(new Processor(new StringWrapper("Processor"), new DoubleWrapper(10.0), new DoubleWrapper(0.0)));
         computerObject.AddPart(new Memory(new StringWrapper("Memory"), new DoubleWrapper(10.0), new StringWrapper(""), new IntWrapper(0)));
-
-        assertEquals(true, computerObject.IsComplete());
+        BooleanWrapper booleanWrapObject = new BooleanWrapper(true);
+        assertEquals(booleanWrapObject.booleanValue, computerObject.IsComplete());
     }
 
     /**
@@ -175,25 +177,39 @@ public class ComputerTest {
      */
     @org.junit.Test
     public void testComputerIsIncomplete() {
-
-        for (int integer = 0; integer < 4; integer++) {
+        IntWrapper integer = new IntWrapper(0);
+        for (integer.intValue = 0; integer.intValue < 4; integer.intValue++) {
             Computer computerObject = new Computer();
-            if (integer != 0) {
-                computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
+            switch (integer.intValue) {
+                case 0:
+                    computerObject.AddPart(new Motherboard(new StringWrapper("Motherboard"), new DoubleWrapper(10.0)));
+                    computerObject.AddPart(new Processor(new StringWrapper("Processor"), new DoubleWrapper(10.0), new DoubleWrapper(0.0)));
+                    computerObject.AddPart(new Memory(new StringWrapper("Memory"), new DoubleWrapper(10.0), new StringWrapper(""), new IntWrapper(0)));
+                    break;
+                case 1:
+                    computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
+                    computerObject.AddPart(new Processor(new StringWrapper("Processor"), new DoubleWrapper(10.0), new DoubleWrapper(0.0)));
+                    computerObject.AddPart(new Memory(new StringWrapper("Memory"), new DoubleWrapper(10.0), new StringWrapper(""), new IntWrapper(0)));
+                    break;
+                case 2:
+                    computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
+                    computerObject.AddPart(new Motherboard(new StringWrapper("Motherboard"), new DoubleWrapper(10.0)));
+                    computerObject.AddPart(new Memory(new StringWrapper("Memory"), new DoubleWrapper(10.0), new StringWrapper(""), new IntWrapper(0)));
+                    break;
+                case 3:
+                    computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
+                    computerObject.AddPart(new Motherboard(new StringWrapper("Motherboard"), new DoubleWrapper(10.0)));
+                    computerObject.AddPart(new Processor(new StringWrapper("Processor"), new DoubleWrapper(10.0), new DoubleWrapper(0.0)));
+                    break;
+                default:
+                    computerObject.AddPart(new Casing(new StringWrapper("Casing"), new DoubleWrapper(10.0), new StringWrapper("")));
+                    computerObject.AddPart(new Motherboard(new StringWrapper("Motherboard"), new DoubleWrapper(10.0)));
+                    computerObject.AddPart(new Processor(new StringWrapper("Processor"), new DoubleWrapper(10.0), new DoubleWrapper(0.0)));
+                    computerObject.AddPart(new Memory(new StringWrapper("Memory"), new DoubleWrapper(10.0), new StringWrapper(""), new IntWrapper(0)));
+                    break;
             }
-            if (integer != 1) {
-                computerObject.AddPart(new Motherboard(new StringWrapper("Motherboard"), new DoubleWrapper(10.0)));
-
-            }
-            if (integer != 2) {
-                computerObject.AddPart(new Processor(new StringWrapper("Processor"), new DoubleWrapper(10.0), new DoubleWrapper(0.0)));
-
-            }
-            if (integer != 3) {
-                computerObject.AddPart(new Memory(new StringWrapper("Memory"), new DoubleWrapper(10.0), new StringWrapper(""), new IntWrapper(0)));
-
-            }
-            assertEquals(false, computerObject.IsComplete());
+            BooleanWrapper booleanWrapObject = new BooleanWrapper(false);
+            assertEquals(booleanWrapObject.booleanValue, computerObject.IsComplete());
         }
     }
 }
