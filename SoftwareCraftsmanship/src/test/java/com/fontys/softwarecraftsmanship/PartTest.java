@@ -10,16 +10,16 @@ public class PartTest {
      */
     @org.junit.Test
     public void testGetPrice() {
-        final double DEFAULT_PRICE = 10.0;
-        List<Part> parts = new ArrayList<>();
+        final DoubleWrapper DEFAULT_PRICE = new DoubleWrapper(10.0);
+         ListPartWrapper parts = new ListPartWrapper();
         
-        parts.add(new Part("Casing", "", DEFAULT_PRICE, "", 0));
-        parts.add(new Part("Processor", "", DEFAULT_PRICE, 0.0));
-        parts.add(new Part("Memory", "", DEFAULT_PRICE, "", 0));
-        parts.add(new Part("Motherboard", "", DEFAULT_PRICE));
+        parts.add(new Part("Casing", "", DEFAULT_PRICE.doubleValue, "", 0));
+        parts.add(new Part("Processor", "", DEFAULT_PRICE.doubleValue, 0.0));
+        parts.add(new Part("Memory", "", DEFAULT_PRICE.doubleValue, "", 0));
+        parts.add(new Part("Motherboard", "", DEFAULT_PRICE.doubleValue));
         
-        for (Part p : parts) {
-            assertEquals(DEFAULT_PRICE, p.GetPrice(), 0.0);
+        for (Part part : parts.listPart) {
+            assertEquals(DEFAULT_PRICE.doubleValue, part.GetPrice(), 0.0);
         }
     }
 }
