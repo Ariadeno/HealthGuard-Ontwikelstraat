@@ -4,38 +4,42 @@ import java.util.*;
 
 public class Computer {
     
-    List<Part> parts = new ArrayList<>();
-    
+    public ListPartWrapper listPartWrapper;
+
+	public Computer(){
+		this.listPartWrapper = new ListPartWrapper();
+	}
+
     public int NumberOfParts() {
-        int count = 0;
-        for (Part p : parts) { 
-            count++;
+		IntWrapper intWrapper = new IntWrapper(0);
+        for (Part p : listPartWrapper.listPart) { 
+            intWrapper.intValue++;
         }
-        return count;
+        return intWrapper.intValue;
     }
     
     public void AddPart(Part p) {
-        parts.add(p);
+        listPartWrapper.add(p);
     }
     
     public double GetPrice() {
-        double price = 0.0;
+        DoubleWrapper price = new DoubleWrapper(0.0);
         
-        for (int i = 0; i < NumberOfParts(); i++) {
-            Part part = parts.get(i);
-            price += part.GetPrice();
+        for (IntWrapper i = new IntWrapper(0); i.intValue < NumberOfParts(); i.intValue++) {
+            Part part = listPartWrapper.get(i);
+            price.doubleValue += part.GetPrice();
         }
         
-        return price;
+        return price.doubleValue;
     }
     
     public boolean IsComplete() {
-        boolean hasCasing = false;
-        boolean hasProcessor = false;
-        boolean hasMemory = false;
-        boolean hasMotherboard = false;
+        BooleanWrapper hasCasing = new BooleanWrapper(false);
+        BooleanWrapper hasProcessor = new BooleanWrapper(false);
+        BooleanWrapper hasMemory = new BooleanWrapper(false);
+        BooleanWrapper hasMotherboard = new BooleanWrapper(false);
         
-        for (Part part : parts) {
+        for (Part part : listPartWrapper.listPart) {
             if (part.GetType().equals("Casing")) {
                 hasCasing = true;
             }
