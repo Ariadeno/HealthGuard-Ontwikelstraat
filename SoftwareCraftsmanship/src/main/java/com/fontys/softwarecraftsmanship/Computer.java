@@ -41,26 +41,26 @@ public class Computer {
         
         for (Part part : listPartWrapper.listPart) {
             if (part.GetType().equals("Casing")) {
-                hasCasing = true;
+                hasCasing.booleanValue = true;
             }
             else {
                 if (part.GetType().equals("Processor")) {
-                    hasProcessor = true;
+                    hasProcessor.booleanValue = true;
                 }
                 else {
                     if (part.GetType().equals("Memory")) {
-                        hasMemory = true;
+                        hasMemory.booleanValue = true;
                     }
                     else {
                         if (part.GetType().equals("Motherboard")) {
-                            hasMotherboard = true;
+                            hasMotherboard.booleanValue = true;
                         }
                     }
                 }
             }
         }
         
-        if (!hasCasing || !hasProcessor || !hasMemory || !hasMotherboard) {
+        if (!hasCasing.booleanValue || !hasProcessor.booleanValue || !hasMemory.booleanValue || !hasMotherboard.booleanValue) {
             return false;
         } else {
             return true;
