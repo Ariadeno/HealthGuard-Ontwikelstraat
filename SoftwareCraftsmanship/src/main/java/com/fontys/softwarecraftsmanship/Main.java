@@ -13,18 +13,19 @@ public class Main {
         computerObject.AddPart(new Part("Memory", "G.SKILL Ripjaws X Series", 99.99, "DDR3", 16));
         computerObject.AddPart(new Part("Motherboard", "MSI H97 PC MATE - Socket 1150 - ATX", 89.0));
         if (computerObject.IsComplete()) {
-          intWrapperObject.intValue = 1;
+            intWrapperObject.intValue = 1;
         }
-        double value = computerObject.GetPrice();
-        switch ( intWrapperObject.intValue ) {
+        DoubleWrapper DoubleWrapperObject = new DoubleWrapper();
+        DoubleWrapperObject.doubleValue = computerObject.GetPrice();
+        switch (intWrapperObject.intValue) {
             case 1:
-                out.println("Total price is € " + value);
+                out.println("Total price is € " + DoubleWrapperObject.doubleValue);
                 break;
             case 2:
                 out.println("Your computer is not ready yet...");
                 break;
             default:
-                out.println("Total price is € " + value);
+                out.println("Total price is € " + DoubleWrapperObject.doubleValue);
                 break;
         }
     }
