@@ -13,5 +13,9 @@ import java.util.List;
  * @author Ismail Gürler <ismailgurler@fhict>
  */
 public class ListPartWrapper {
-	public List<Part> listPart = new ArrayList<>();
+	public List<Part> listPart;
+
+	public ListPartWrapper(){
+		this.listPart = new ArrayList<>();
+	}
 }
