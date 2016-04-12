@@ -11,4 +11,8 @@ package com.fontys.softwarecraftsmanship;
  */
 public class DoubleWrapper {
 	public double doubleValue;
+
+	public DoubleWrapper(double value) {
+		this.doubleValue = value;
+	}
 }

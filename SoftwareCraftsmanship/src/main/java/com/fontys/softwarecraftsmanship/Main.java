@@ -5,8 +5,7 @@ import static java.lang.System.out;
 public class Main {
 
     public static void main(String[] args) {
-        IntWrapper intWrapperObject = new IntWrapper();
-        intWrapperObject.intValue = 2;
+        IntWrapper intWrapperObject = new IntWrapper(2);
         Computer computerObject = new Computer();
         computerObject.AddPart(new Part("Casing", "Cooler Master Centurion 6", 49.50, "Midi tower"));
         computerObject.AddPart(new Part("Processor", "Intel i7-4790", 295.0, 3.6));

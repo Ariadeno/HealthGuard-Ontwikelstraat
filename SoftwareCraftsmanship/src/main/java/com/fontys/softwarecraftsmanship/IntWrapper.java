@@ -10,5 +10,10 @@ package com.fontys.softwarecraftsmanship;
  * @author Char
  */
 public class IntWrapper {
-        public int intValue = 0;
+        public int intValue;
+		
+		public IntWrapper(int value) {
+			this.intValue = value;
+		}
+
 }

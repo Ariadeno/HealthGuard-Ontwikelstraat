@@ -5,14 +5,13 @@
  */
 package com.fontys.softwarecraftsmanship;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
- * @author Char
+ * @author Ismail Gürler <ismailgurler@fhict>
  */
-public class StringWrapper {
-     public String stringValue;
-
-	 public StringWrapper(String value) {
-		 this.stringValue = value;
-	 }
+public class ListPartWrapper {
+	public List<Part> listPart = new ArrayList<>();
 }
