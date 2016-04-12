@@ -18,4 +18,12 @@ public class ListPartWrapper {
 	public ListPartWrapper(){
 		this.listPart = new ArrayList<>();
 	}
+
+	public void add(Part element) {
+		listPart.add(element);
+	}
+
+	public Part get(IntWrapper intWrapper) {
+		return listPart.get(intWrapper.intValue);
+	}
 }
