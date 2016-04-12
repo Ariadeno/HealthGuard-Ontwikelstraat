@@ -14,8 +14,7 @@ public class Main {
         if (computerObject.IsComplete()) {
             intWrapperObject.intValue = 1;
         }
-        DoubleWrapper DoubleWrapperObject = new DoubleWrapper();
-        DoubleWrapperObject.doubleValue = computerObject.GetPrice();
+        DoubleWrapper DoubleWrapperObject = new DoubleWrapper(computerObject.GetPrice());
         switch (intWrapperObject.intValue) {
             case 1:
                 out.println("Total price is € " + DoubleWrapperObject.doubleValue);
